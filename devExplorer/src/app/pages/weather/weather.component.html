@@ -1,0 +1,43 @@
+<div *ngIf="weather" class="weather-card container mt-3">
+  <div class="weather-left">
+    <img *ngIf="weather.weather[0]?.icon"
+      [src]="'https://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png'" class="weather-icon"
+      [alt]="weather.weather[0].description">
+    <div class="weather-temp">
+      <span class="temp-value">{{ weather.main.temp | number:'1.0-0' }}</span>
+      <span class="temp-unit">°C</span>
+    </div>
+  </div>
+
+  <div class="weather-right">
+    <div class="weather-location">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
+      {{ weather.name }}
+    </div>
+    <p class="weather-desc">{{ weather.weather[0].description }}</p>
+    <div class="weather-details">
+      <span class="weather-detail" *ngIf="weather.main.feels_like">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" />
+        </svg>
+        Feels {{ weather.main.feels_like | number:'1.0-0' }}°C
+      </span>
+      <span class="weather-detail" *ngIf="weather.main.humidity">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+        </svg>
+        {{ weather.main.humidity }}% humidity
+      </span>
+      <span class="weather-detail" *ngIf="weather.wind?.speed">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
+        </svg>
+        {{ weather.wind.speed | number:'1.0-1' }} m/s
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ---- CSS Variables ---- */
+:root {
+  --bg-primary: #080d1a;
+  --bg-secondary: #0f1729;
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --bg-card-hover: rgba(255, 255, 255, 0.07);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(99, 179, 237, 0.5);
+  --accent: #63b3ed;
+  --accent-glow: rgba(99, 179, 237, 0.15);
+  --accent-gradient: linear-gradient(135deg, #667eea, #764ba2);
+  --text-primary: #f0f6ff;
+  --text-secondary: #8595a8;
+  --text-muted: #4a5568;
+  --success: #68d391;
+  --warning: #f6ad55;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(99, 179, 237, 0.12);
+  --transition: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---- Base ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(102, 126, 234, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(118, 75, 162, 0.06) 0%, transparent 60%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ---- Container ---- */
+.container {
+  max-width: 860px;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* ---- Card base ---- */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.3s var(--transition), box-shadow 0.3s var(--transition);
+}
+
+.card:hover {
+  border-color: rgba(99, 179, 237, 0.2);
+  box-shadow: var(--shadow-card), var(--shadow-glow);
+}
+
+/* ---- Form controls ---- */
+input.form-control,
+.form-control {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+input.form-control:focus,
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  color: var(--text-primary);
+  outline: none;
+}
+
+input.form-control::placeholder {
+  color: var(--text-muted);
+}
+
+/* ---- Links ---- */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #90cdf4;
+}
+
+/* ---- List group ---- */
+.list-group-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.list-group-item:first-child {
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+}
+
+.list-group-item:last-child {
+  border-bottom-left-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+.list-group-item:hover {
+  background: var(--bg-card-hover);
+  transform: translateX(3px);
+}
+
+/* ---- Badges ---- */
+.badge {
+  font-weight: 500;
+  font-size: 0.72rem;
+  border-radius: 6px;
+  padding: 0.3em 0.65em;
+}
+
+/* ---- Utility ---- */
+.text-muted {
+  color: var(--text-secondary) !important;
+}
+
+.text-accent {
+  color: var(--accent);
+}

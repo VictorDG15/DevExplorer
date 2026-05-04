@@ -1,0 +1,138 @@
+.search-wrapper {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.search-hero {
+    animation: fadeInDown 0.6s ease both;
+}
+
+.search-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    background: linear-gradient(135deg, #f0f6ff 30%, #63b3ed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.search-subtitle {
+    font-size: 0.95rem;
+    color: #8595a8;
+    margin-bottom: 0;
+}
+
+.search-input-wrap {
+    position: relative;
+    animation: fadeInUp 0.6s ease 0.1s both;
+}
+
+.search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4a5568;
+    pointer-events: none;
+    z-index: 2;
+    transition: color 0.2s;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 3.5rem 1rem 3.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    color: #f0f6ff;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: rgba(99, 179, 237, 0.5);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(99, 179, 237, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.search-input:focus~.search-icon,
+.search-input-wrap:focus-within .search-icon {
+    color: #63b3ed;
+}
+
+.search-input::placeholder {
+    color: #4a5568;
+}
+
+.search-loader {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #63b3ed;
+    display: flex;
+    align-items: center;
+}
+
+/* Spinner */
+.spinner {
+    animation: rotate 1.2s linear infinite;
+}
+
+.path {
+    stroke: #63b3ed;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -35;
+    }
+
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -124;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
